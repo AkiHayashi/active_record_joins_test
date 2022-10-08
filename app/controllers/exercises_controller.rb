@@ -9,7 +9,7 @@ class ExercisesController < ApplicationController
   def exercise2
     # 【要件】注文されていない料理を提供しているすべてのお店を返すこと
     #   * left_outer_joinsを使うこと
-    @shops = Shop.left_outer_joins(foods: :orders).where(orders: {id: nil})
+    @shops = Shop.left_outer_joins(foods: :orders).where(orders: {id: nil}).group(:id)
   end
 
   def exercise3 
